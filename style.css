@@ -8,6 +8,18 @@
     display: flex !important;
 } */
 
+.btnvert:hover {
+    background-color: rgb(2, 103, 2) !important;
+}
+.btnjaune:hover {
+    background-color: #edd644 !important;
+}
+
+.btnhvert:hover {
+    background-color: #1B3D14 !important;
+    color: white !important;
+}
+
 .row {
     margin-right: 0;
 }
@@ -127,4 +139,8 @@
         width: 100% !important;
     }
 
+}
+@media (max-width: 425px) {
+    .hide-under-769 { display: none !important; }
+    .hide-under-760 { display: flex !important; }
 }
