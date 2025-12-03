@@ -1,0 +1,130 @@
+  
+
+/* .card:hover .overlay-1 {
+    display: none !important;
+}
+
+.card:hover .overlay-2 {
+    display: flex !important;
+} */
+
+.row {
+    margin-right: 0;
+}
+
+.card-zoom {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.card-zoom img {
+  transition: transform 0.5s ease, filter 0.5s ease;
+}
+
+.card-zoom:hover img {
+  transform: scale(1.1) translateY(-10px);
+  filter: brightness(0.8);
+}
+
+.card-zoom .card-img-overlay.d-none {
+  opacity: 0;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  transform: translateY(20px); 
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.card-zoom:hover .card-img-overlay.d-none {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.banner {
+    height: 280px; 
+}
+
+.banner-img {
+    object-fit: cover;
+    height: 100%;
+}
+
+.banner-overlay {
+    background: rgba(0, 100, 0, 0.35); 
+    backdrop-filter: blur(2px); 
+}
+
+
+.card-img-top {
+    height: 22em;
+    object-fit: cover;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    transition: transform 0.5s ease, filter 0.5s ease;
+}
+
+.card-img-top:hover {
+  transform: scale(1.1) translateY(-10px);
+  filter: brightness(0.8);
+}
+
+.date-badge {
+    position: absolute;
+    bottom: -50px;
+    left: 6px;
+    background: #eddd75;
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    color: #444;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+}
+
+.date-badge .day {
+    font-size: 20px;
+}
+
+.date-badge .month {
+    font-size: 12px;
+}
+
+.card {
+    border-radius: 20px;
+}
+
+.CARD1 {
+    padding-top: 1em;
+}
+
+@media (min-width: 768px) and (max-width: 900px) {
+    .hide-under-769 { display: none !important; }
+    .hide-under-760 { display: flex !important; }
+    .plusimg {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 1rem;
+    justify-content: center; 
+    justify-items: center;   
+    padding: 0;
+    }
+
+    .CARD {
+        display: flex !important;
+        flex-direction: column !important;
+        width: 100% !important;
+        justify-content: center !important;
+        align-items: center !important;
+    }
+
+    .CARD1 {
+        width: 100% !important;
+    }
+
+}
