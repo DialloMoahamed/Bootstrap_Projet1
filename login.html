@@ -17,7 +17,7 @@
         <span class="navbar-brand fs-2">Agritech App</span>
     </div>
     <div class="d-flex justify-content-center align-items-center mt-5">
-        <form class="p-5 rounded text-light" style="background-color: #1D3D14; width: 40em; height: 35em; margin: 2em;">
+        <form class="p-5 rounded text-light" id="loginForm" style="background-color: #1D3D14; width: 40em; height: 35em; margin: 2em;">
             <h3 class="text-center text-light">Login</h3>
             <div class="mb-5">
                 <label for="exampleInputEmail1" class="form-label">Veuillez saisir votre Email <span
@@ -31,20 +31,21 @@
                 <input type="password" class="form-control" id="exampleInputPassword1" placeholder="password" required>
             </div>
             <div class="mb-3 form-check">
-                <input type="radio" class="form-check-input" id="exampleCheck1" required>
+                <input type="checkbox" class="form-check-input" id="exampleCheck1" required>
                 <label class="form-check-label" for="exampleCheck1">Se souvenir de moi</label>
             </div>
             <div class="mb-4 d-grid">
                 <div>
-                    <button type="submit" class="btn btn-success rounded-pill p-2" style="width: 8em; float: right;"><a
-                            href="index.html" class="text-decoration-none text-light"> Login &#8599;</a></button>
+                    <button type="submit" class="btn btn-success rounded-pill p-2" style="width: 8em; float: right;">Login &#8599;</button>
                 </div>
 
                 <span class="mt-5">Pour récupérer votre compte veuillez contactez un administrateur si vous avez oublié
                     votre mot de passe.</span>
             </div>
         </form>
+        <p id="message"></p>
     </div>
+    <script src="login.js"></script>
 </body>
 
 </html>
