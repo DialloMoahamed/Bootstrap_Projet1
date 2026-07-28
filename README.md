@@ -1,3 +1,4 @@
+
 # Agritech App
 
 ## Description
@@ -12,6 +13,11 @@ Dans ce projet vous aurez à rajouter les fonctionnalités du projet Agritech en
 ## Spécifications
 
 - Respectez les directives de la vidéo et des exercices.
+- Vidéo de référence : [https://youtu.be/KrzeE5ZQvsA](https://youtu.be/KrzeE5ZQvsA)
+
+## Statut
+
+**Assigné**
 
 ## Énoncés d'Exercice
 
