@@ -68,9 +68,11 @@
                     <li class="list-group-item text-dark">Indicateurs &#8599;</li>
                 </a>
             </ul>
-            <button style="background-color: #1B3D14; width: 12em;" type="button" class="btn text-light rounded-pill"><a
-                    href="login.html" class="text-decoration-none text-light"> Connect <i
-                        class="fa-solid fa-arrow-right-to-bracket"></i></a></button>
+            <div class="d-flex align-items-center gap-3">
+                <span id="userName"></span>
+                <button id="logoutBtn" style="width: 12em;" type="button" class="btn text-light rounded-pill bg-danger">
+                    Disconnect<i class="fa-solid fa-arrow-right-to-bracket"></i></button>
+            </div>
         </div>
     </nav>
     <!-- Fin de la deuxième nav -->
@@ -161,8 +163,8 @@
                         </div>
 
                         <div class="card-body">
-                            <h4 class="card-title">Malika Maliktaou</h4>
-                            <p class="card-text">Specialiste Environnement</p>
+                            <h4 class="card-title" id="username">Malika Maliktaou</h4>
+                            <p class="card-text" id="role">Specialiste Environnement</p>
                             <p>
                                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Error, nesciunt? Soluta odio
                                 magnam atque quisquam doloribus. At molestiae minus qui alias modi fugiat asperiores,
@@ -215,111 +217,35 @@
             </div>
         </div>
         <div class="container">
-            <h3 class="mt-5">Comments (7)</h3><br>
-            <div class="card w-75" style="border-top-color: #1A8755; border-bottom-color: #1A8755;">
-                <div class="card-body">
-                    <div class="d-flex justify-content-between">
-                        <span><strong>Mariam</strong> (mariam76@example.com)</span>
-                        <i class="bi bi-arrow-return-left fs-5"></i>
-                    </div>
-                    <div class="mt-3">
-                        <span class="small">01/12/2025 06.14.53</span>
-                    </div>
-                    <span class="small">Merci du partage</span>
-                </div>
-            </div>
-            <div class="card mt-3 w-75" style="border-top-color: #1A8755; border-bottom-color: #1A8755;">
-                <div class="card-body">
-                    <div class="d-flex justify-content-between">
-                        <span><strong>Mariam</strong> (mariam76@example.com)</span>
-                        <i class="bi bi-arrow-return-left fs-5"></i>
-                    </div>
-                    <div class="mt-3">
-                        <span class="small">01/12/2025 06.14.53</span>
-                    </div>
-                    <span class="small">Merci du partage</span>
-                </div>
-            </div>
-            <div class="card mt-3 w-75" style="border-top-color: #1A8755; border-bottom-color: #1A8755;">
-                <div class="card-body">
-                    <div class="d-flex justify-content-between">
-                        <span><strong>Mariam</strong> (mariam76@example.com)</span>
-                        <i class="bi bi-arrow-return-left fs-5"></i>
-                    </div>
-                    <div class="mt-3">
-                        <span class="small">01/12/2025 06.14.53</span>
-                    </div>
-                    <span class="small">Merci du partage</span>
-                </div>
-            </div>
-            <div class="card mt-3 w-75" style="border-top-color: #1A8755; border-bottom-color: #1A8755;">
-                <div class="card-body">
-                    <div class="d-flex justify-content-between">
-                        <span><strong>Mariam</strong> (mariam76@example.com)</span>
-                        <i class="bi bi-arrow-return-left fs-5"></i>
-                    </div>
-                    <div class="mt-3">
-                        <span class="small">01/12/2025 06.14.53</span>
-                    </div>
-                    <span class="small">Merci du partage</span>
-                </div>
-            </div>
-            <div class="card mt-3 w-75" style="border-top-color: #1A8755; border-bottom-color: #1A8755;">
-                <div class="card-body">
-                    <div class="d-flex justify-content-between">
-                        <span><strong>Mariam</strong> (mariam76@example.com)</span>
-                        <i class="bi bi-arrow-return-left fs-5"></i>
-                    </div>
-                    <div class="mt-3">
-                        <span class="small">01/12/2025 06.14.53</span>
-                    </div>
-                    <span class="small">Merci du partage</span>
-                </div>
-            </div>
-            <div class="card mt-3 w-75" style="border-top-color: #1A8755; border-bottom-color: #1A8755;">
-                <div class="card-body">
-                    <div class="d-flex justify-content-between">
-                        <span><strong>Mariam</strong> (mariam76@example.com)</span>
-                        <i class="bi bi-arrow-return-left fs-5"></i>
-                    </div>
-                    <div class="mt-3">
-                        <span class="small">01/12/2025 06.14.53</span>
-                    </div>
-                    <span class="small">Merci du partage</span>
-                </div>
-            </div>
-            <div class="card mt-3 w-75" style="border-top-color: #1A8755; border-bottom-color: #1A8755;">
-                <div class="card-body">
-                    <div class="d-flex justify-content-between">
-                        <span><strong>Mariam</strong> (mariam76@example.com)</span>
-                        <i class="bi bi-arrow-return-left fs-5"></i>
-                    </div>
-                    <div class="mt-3">
-                        <span class="small">01/12/2025 06.14.53</span>
-                    </div>
-                    <span class="small">Merci du partage</span>
-                </div>
-            </div>
+            <h3 class="mt-5" id="commentTitle">Comments (0)</h3><br>
+            <!-- Les commentaires sont générés dynamiquement par Formation_details.js -->
+            <div id="commentsList"></div>
         </div>
         <div class="container d-flex justify-content-end">
             <div class="card mt-5 border-0 w-75" style="background-color: #D3D6D7;">
                 <div class="card-body">
                     <h5 class="card-title">Add a comments</h5>
-                    <div class="row g-2">
+
+                    <!-- Affiché uniquement si un utilisateur est connecté -->
+                    <p id="commentAsLoggedIn" class="small text-muted mb-2" style="display: none;"></p>
+
+                    <div class="row g-2" id="guestFields">
                         <div class="col-md">
-                            <input type="text" aria-label="First name" class="form-control" placeholder="Your Name">
+                            <input type="text" id="commentName" aria-label="First name" class="form-control"
+                                placeholder="Your Name">
                         </div>
                         <div class="col-md">
-                            <input type="email" aria-label="Last name" class="form-control" placeholder="Your Email">
+                            <input type="email" id="commentEmail" aria-label="Last name" class="form-control"
+                                placeholder="Your Email">
                         </div>
                     </div>
                     <div class="form-floating mt-3">
-                        <textarea class="form-control" placeholder="Your Comment" id="floatingTextarea2"
+                        <textarea class="form-control" placeholder="Your Comment" id="commentText"
                             style="height: 300px"></textarea>
-                        <label for="floatingTextarea2" class="text-muted">Your Comments</label>
+                        <label for="commentText" class="text-muted">Your Comments</label>
                     </div><br>
-                    <button type="button" class="btn rounded-pill text-light p-2"
-                        style="background-color: #173610; width: 10em;">Voir plus &#8599;</button>
+                    <button type="button" id="submitComment" class="btn rounded-pill text-light p-2"
+                        style="background-color: #173610; width: 10em;">Publier &#8599;</button>
                 </div>
             </div>
         </div>
@@ -430,6 +356,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
         crossorigin="anonymous"></script>
+        <script src="Formation_details.js"></script>
 </body>
 
 </html>
