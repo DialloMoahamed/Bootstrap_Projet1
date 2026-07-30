@@ -318,7 +318,7 @@ function afficherBlogs() {
         </p>
         <div>
           <span style="font-size: small;">
-            <i class="fa-regular fa-comment-dots"></i> ${blog.commentaires} comments
+            <i class="fa-regular fa-comment-dots" id="commentTitle"></i> ${blog.commentaires} comments
           </span>
         </div><br>
         <button type="button" class="btn rounded-pill text-light p-2"

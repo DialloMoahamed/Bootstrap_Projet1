@@ -34,6 +34,68 @@ const params = new URLSearchParams(window.location.search);
 const postId = params.get("id") || "default";
 const commentsKey = "comments_" + postId;
 
+// ============================
+// Chargement du blog concerné (contenu de la page de détail)
+// ============================
+
+// Récupère la liste des blogs enregistrés (la même source de vérité
+// que Formation.html/Formation.js) et retourne celui dont l'id
+// correspond au paramètre ?id=... de l'URL.
+function getBlogActuel() {
+    const stored = localStorage.getItem("blogs");
+    if (!stored) return null;
+
+    const blogs = JSON.parse(stored);
+
+    // Les id peuvent être des nombres (blogs de base) ou des
+    // timestamps (Date.now()) créés via le formulaire d'ajout.
+    // On compare donc en chaîne de caractères pour éviter tout
+    // souci de type entre l'URL (string) et les données (number).
+    return blogs.find((blog) => String(blog.id) === String(postId)) || null;
+}
+
+// Remplit le contenu de la page (image, titre, auteur, date,
+// catégorie, description) avec les informations du blog cliqué
+// depuis Formation.html.
+function afficherDetailsBlog() {
+    const blog = getBlogActuel();
+
+    // Si aucun blog ne correspond (id invalide ou manquant),
+    // on laisse le contenu par défaut déjà présent dans le HTML.
+    if (!blog) return;
+
+    const detailImage = document.getElementById("detailImage");
+    const detailTitre = document.getElementById("detailTitre");
+    const detailAuteurDate = document.getElementById("detailAuteurDate");
+    const detailDescription = document.getElementById("detailDescription");
+    const detailCategorie = document.getElementById("detailCategorie");
+
+    if (detailImage) detailImage.src = blog.image;
+    if (detailTitre) detailTitre.textContent = blog.titre;
+    if (detailAuteurDate) {
+        detailAuteurDate.textContent =
+            "By " + blog.auteur + " | Published on " + blog.date;
+    }
+    if (detailDescription) detailDescription.textContent = blog.description;
+    if (detailCategorie) detailCategorie.textContent = blog.categorie;
+}
+
+// Met à jour le nombre de commentaires affiché sur la carte du
+// blog dans Formation.html, pour qu'il reste synchronisé avec le
+// nombre réel de commentaires publiés sur cette page de détail.
+function synchroniserCompteurCommentaires(nombre) {
+    const stored = localStorage.getItem("blogs");
+    if (!stored) return;
+
+    const blogs = JSON.parse(stored);
+    const index = blogs.findIndex((blog) => String(blog.id) === String(postId));
+
+    if (index !== -1) {
+        blogs[index].commentaires = nombre;
+        localStorage.setItem("blogs", JSON.stringify(blogs));
+    }
+}
+
 // Commentaires de démonstration affichés la toute première fois
 // qu'un visiteur ouvre cet article (avant tout ajout réel).
 const defaultComments = [
@@ -96,6 +158,10 @@ function renderComments() {
     });
 
     document.getElementById("commentTitle").textContent = "Comments (" + comments.length + ")";
+
+    // Garde le compteur "X comments" de la carte (Formation.html)
+    // synchronisé avec le nombre réel de commentaires de cet article.
+    synchroniserCompteurCommentaires(comments.length);
 }
 
 // Ajoute un commentaire (accessible connecté ou non)
@@ -156,6 +222,8 @@ function setupCommentForm() {
 }
 
 document.addEventListener("DOMContentLoaded", function () {
+    // Affiche le contenu de l'article (image, titre, auteur, description...)
+    afficherDetailsBlog();
     // Affiche la liste des commentaires + met à jour le compteur
     renderComments();
     // Prépare le formulaire selon l'état de connexion
