@@ -67,9 +67,13 @@
                     <li class="list-group-item text-dark">Indicateurs &#8599;</li>
                 </a>
             </ul>
-            <button style="background-color: #1B3D14; width: 12em;" type="button" class="btn text-light rounded-pill"><a
-                    href="login.html" class="text-decoration-none text-light"> Connect <i
-                        class="fa-solid fa-arrow-right-to-bracket"></i></a></button>
+            <div class="d-flex align-items-center gap-3">
+                <span class="user-name"></span>
+                <a href="login.html" style="background-color: #1B3D14; width: 12em;"
+                    class="btn text-light rounded-pill login-btn">Connect <i class="fa-solid fa-arrow-right-to-bracket"></i></a>
+                <button type="button" style="width: 12em;"
+                    class="btn text-light rounded-pill bg-danger logout-btn">Disconnect <i class="fa-solid fa-arrow-right-to-bracket"></i></button>
+            </div>
         </div>
     </nav>
     <!-- Fin de la deuxième nav -->
@@ -84,8 +88,13 @@
             <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
         <div class="offcanvas-body">
-            <button style="background-color: #1B3D14; width: 12em;" type="button"
-                class="btn text-light rounded-pill">Connect <i class="fa-solid fa-arrow-right-to-bracket"></i></button>
+            <div class="d-flex align-items-center gap-3">
+                <span class="user-name"></span>
+                <a href="login.html" style="background-color: #1B3D14; width: 12em;"
+                    class="btn text-light rounded-pill login-btn">Connect <i class="fa-solid fa-arrow-right-to-bracket"></i></a>
+                <button type="button" style="width: 12em;"
+                    class="btn text-light rounded-pill bg-danger logout-btn">Disconnect <i class="fa-solid fa-arrow-right-to-bracket"></i></button>
+            </div>
             <hr>
             <ul class="navbar-nav justify-content-end flex-grow-1 pe-3 mt-3">
                 <a class="text-decoration-none fs-5" href="index.html">
@@ -137,7 +146,57 @@
 
     <!-- Contenu principal -->
     <main>
+        <div class="container my-4">
+            <div class="banner position-relative overflow-hidden rounded-4">
+                <img src="images/cardimg6.jpg" class="img-fluid w-100 banner-img" alt="Banner">
+                <div class="banner-overlay position-absolute top-0 start-0 w-100 h-100 d-flex flex-column justify-content-center align-items-center text-white">
+                    <p class="mb-1 small">Home >> Météo</p>
+                    <h2 class="fw-bold">Météo</h2>
+                </div>
+            </div>
+        </div>
 
+        <div class="container mb-5">
+            <div class="card shadow p-4">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h2 id="ville">Position inconnue</h2>
+                    <button id="btn-position" class="btn text-white" style="background:#1B5E20">
+                        <i class="fa-solid fa-location-dot"></i> Détectez ma position
+                    </button>
+                </div>
+
+                <!-- Valeurs actuelles -->
+                <div class="card border p-4 mb-4">
+                    <div class="row align-items-center">
+                        <div class="col-md-3">
+                            <h1 id="temp">--</h1><span>Temperature</span>
+                        </div>
+                        <div class="col-md-6">
+                            <p class="mb-1"><img src="images/Goutte_d'eau.png" width="20"> <strong id="humidity">--</strong> Humidity</p>
+                            <p class="mb-1"><img src="images/pluie.png" width="20"> <strong id="precip">--</strong> Precipitation</p>
+                            <p class="mb-1"><img src="images/wind.png" width="20"> <strong id="wind">--</strong> Wind</p>
+                        </div>
+                        <div class="col-md-3 text-center">
+                            <h4 id="heure">--</h4><span>Time</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 6 prochaines heures -->
+                <h4>Infos météorologiques des 6 prochaines heures</h4>
+                <div class="d-flex gap-2 my-3">
+                    <button id="btn-temp" class="btn text-white" style="background:#1B3D14"><i class="fa-solid fa-temperature-half"></i> Température</button>
+                    <button id="btn-vent" class="btn text-white" style="background:#1B3D14"><i class="fa-solid fa-wind"></i> Vent</button>
+                    <button id="btn-precip" class="btn text-white" style="background:#1B3D14"><i class="fa-solid fa-cloud-rain"></i> Précipitation</button>
+                </div>
+                <h3 id="titre-graphique"></h3>
+                <canvas id="graphique"></canvas>
+                <div id="vent" class="row my-4"></div>
+
+                <!-- 6 jours -->
+                <div id="previsions" class="row row-cols-3 row-cols-md-6 g-2 mt-3"></div>
+            </div>
+        </div>
     </main>
     <!-- Fin du Contenu principal -->
 
@@ -246,6 +305,12 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
         crossorigin="anonymous"></script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="auth.js"></script>
+    <script src="api-meteo.js"></script>
+    <script src="meteo.js"></script>    
 </body>
 
 </html>

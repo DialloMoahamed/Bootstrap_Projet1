@@ -315,24 +315,24 @@
             <div class="col-sm-5">
                 <div class="card" style="height: 20em; background-color: #EFDE67;">
                     <div class="card-header border-0 d-flex justify-content-between" style="background-color: #EFDE67;">
-                        <p>Lundi 1 déc.</p>
-                        <p>06:56</p>
+                        <p id="accueil-date">Lundi 1 déc.</p>
+                        <p id="accueil-heure">06:56</p>
                     </div>
                     <div class="card-body text-center">
-                        <i class="fa-solid fa-cloud fs-1"></i>
+                        <span id="accueil-icone" class="fs-1">☁️</span>
                         <div style="margin-top: 1em;">
-                            <h4>23.1°C</h4>
-                            <span>Cloudly <i class="fa-solid fa-cloud text-light"></i></span>
+                            <h4 id="accueil-temp">23.1°C</h4>
+                            <span id="accueil-texte">Cloudly <i class="fa-solid fa-cloud text-light"></i></span>
                         </div>
                     </div>
                     <hr>
                     <div class=" d-flex justify-content-between align-items-center" style="background-color: #EFDE67;">
                         <p style="font-size: 14px;" class="d-flex align-items-center justify-content-center"><img
-                                width="15px" src="images/Goutte_d'eau.png" alt="">Humidity: 37%</p>
+                                width="15px" src="images/Goutte_d'eau.png" alt="">Humidity: <span id="accueil-humidity">37</span>%</p>
                         <p style="font-size: 14px;" class="d-flex align-items-center justify-content-center"><img
-                                width="15px" src="images/pluie.png" alt="">Rain: 0mm</p>
+                                width="15px" src="images/pluie.png" alt="">Rain: <span id="accueil-rain">0</span> mm</p>
                         <p style="font-size: 14px;" class="d-flex align-items-center justify-content-center"><img
-                                width="15px" src="images/wind.png" alt="">Wind: 48km/h</p>
+                                width="15px" src="images/wind.png" alt="">Wind: <span id="accueil-wind">48</span> km/h</p>
                     </div>
                 </div>
             </div>
@@ -569,6 +569,9 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
         crossorigin="anonymous"></script>
+
+    <script src="api-meteo.js"></script>
+    <script src="accueil.js"></script>    
 </body>
 
 </html> 
